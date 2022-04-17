@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@300&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ddd,#eee);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+header .logo{
+    color: #fff;
+    font-weight: 900;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 22px;
+    background-color: lime;
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+header .addtask{
+    height: 30px;
+    min-width: 100px;
+    border: none;
+    outline: none;
+    background: #000;
+    border-top-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    color: lime;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    border: 2px solid lime;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+header .addtask:hover{
+    background: lime;
+    color: #000;
+}
+
+.main{
+    min-height: 400px;
+    width: 100%;
+}
+
+.main .row{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    min-height: 80px;
+    padding: 10px 50px;
+    width: 100%;
+    background-color: #fff;
+    margin: 15px 0;
+    box-shadow: 0 0 15px rgba(0,255,0,0.1);
+    border-bottom: 1px solid lime;
+    transition: .7s ease;
+}
+
+.main .row:before{
+    position: absolute;
+    content: '';
+    height: 60px;
+    width: 1px;
+    background-color: #777;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.main .row .left{
+    width: 50%;
+    padding-right: 10px;
+}
+
+.main .row .left .title{
+    color: #111;
+}
+
+.main .row .left .desc{
+    color: #555;
+}
+
+.main .row .right{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main .row .right p{
+    margin-right: 15px;
+}
+
+.main .row .right button{
+    margin-right: 15px;
+    height: 30px;
+    min-width: 80px;
+    border: none;
+    outline: none;
+    border-top-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .7s linear;
+}
+
+.main .row .right .marker{
+    background: dodgerblue;
+}
+
+.main .row .right .edit{
+    background: #27CD27;
+}
+
+.main .row .right .del{
+    background: tomato;
+}
+
+ion-icon{
+    margin-right: 4px;
+}
+
+/* Popup Box Designing Start  */
+
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-height: 300px;
+    width: 360px;
+    padding: 40px 20px;
+    background: #fff;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+    display: none;
+    transition: .7s linear;
+}
+
+.popup .close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: none;
+    color: rgb(102, 0, 128);
+    cursor: pointer;
+    transition: .4s linear;
+}
+
+.popup .close ion-icon{
+    font-size: 25px;
+}
+
+.popup label{
+    color: #111;
+}
+
+.popup input,textarea{
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.popup textarea{
+    resize: none;
+}
+
+.popup select:focus{
+    outline: none;
+}
+
+.popup input[type="date"]{
+    margin-top: 10px;
+}
+
+.popup select{
+    height: 30px;
+}
+
+.popup .addbtn{
+    background: rgb(102, 0, 128);
+    color: #fff;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    border-top-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .5s linear;
+}
+
+.alert{
+    position: relative;
+    height: 40px;
+    width: 100%;
+    background: rgba(255,0,0,0.2);
+    font-size: 12px;
+    display: none;
+    transition: .4s linear;
+}
+
+.alert .message{
+    height: 100%;
+    width: 85%;
+    float: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.alert .closeAlert{
+    width: 15%;
+    height: 100%;
+    cursor: pointer;
+    float: left;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    color: red;
+}
+
+/* Popup Box Designing End  */
+
+/* Responsive Design  */
+
+@media only screen and (max-width: 991px) {
+    header{
+        padding: 0 15px;
+    }
+
+    .main .row{
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .main .row .left, .main .row .right{
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .main .row .right{
+        flex-wrap: wrap;
+    }
+
+    .main .row:before{
+        opacity: 0;
+    }
+
+    .main .row .right p, button{
+        margin: 14px;
+        text-align: left;
+    }
+
+}

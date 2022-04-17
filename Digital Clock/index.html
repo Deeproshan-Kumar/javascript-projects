@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <source src="main.js" type="text/script" />
+    <title>Digital Clock</title>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <h2>The Time is : </h2>
+        <div id="clock">
+          <div>
+              <span id="hour">00</span>
+              <span>Hours</span>
+          </div>
+          <div>
+            <span id="minute">00</span>
+            <span>Minutes</span>
+          </div>
+          <div>
+            <span id="second">00</span>
+            <span>Seconds</span>
+          </div>
+        </div>
+      </div>
+      <div id="label">Digital Clock</div>
+    </main>
+
+    <script>
+      function clock() {
+        var hour = document.getElementById("hour");
+        var minute = document.getElementById("minute");
+        var second = document.getElementById("second");
+
+        var h = new Date().getHours();
+        var m = new Date().getMinutes();
+        var s = new Date().getSeconds();
+
+        if (h>12){
+          h = h-12;
+        }
+
+        if(m<10){
+          m = '0'+m;
+        }
+
+        if(s<10){
+          s = '0'+s;
+        }
+        
+        hour.innerHTML = h;
+        minute.innerHTML = m;
+        second.innerHTML = s;
+      }
+      var interval = setInterval(clock, 1000);
+    </script>
+  </body>
+</html>

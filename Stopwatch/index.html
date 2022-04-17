@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="style.css" />
+    <source src="main.js" type="text/script" />
+    <title>Stopwatch</title>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <div class="btns">
+          <button class="btn" onclick="start()"><i class="fa fa-play" aria-hidden="true" style="color: red"></i></button>
+          <button class="btn" onclick="stop()"><i class="fa fa-stop" aria-hidden="true" style="color: green"></i></button>
+          <button class="btn" onclick="reset()"><i class="fa fa-refresh" aria-hidden="true" style="color: blue;"></i></button>
+        </div>
+        <div id="clock">
+          <div>
+              <span id="hour">00</span>
+              <span>Hours</span>
+          </div>
+          <div>
+            <span id="minute">00</span>
+            <span>Minutes</span>
+          </div>
+          <div>
+            <span id="second">00</span>
+            <span>Seconds</span>
+          </div>
+          <div>
+            <span id="milisecond">00</span>
+            <span>Miliseconds</span>
+          </div>
+        </div>
+      </div>
+      <div id="label">Stopwatch</div>
+    </main>
+  </body>
+</html>

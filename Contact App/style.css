@@ -1,0 +1,266 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--main);
+}
+
+/* CSS Variable Declarations  for Colors */
+
+:root{
+    --main : rgb(5, 5, 68);
+    --glass : rgba(255,255,255,0.07);
+    --white : #fff;
+    --red : rgb(255, 31, 31);
+}
+
+/* Navbar Styling Start  */
+
+nav{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+    background: var(--glass);
+    border-bottom: 1px solid var(--glass);
+    backdrop-filter: blur(30px);
+}
+
+nav .logo{
+    color: var(--white);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav #open{
+    color: var(--white);
+    padding: 8px 0 8px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    background: var(--red);
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    transition: .5s;
+}
+
+nav #plus{
+    background-color: var(--white);
+    padding: 8px 12px;
+    border-radius: 50%;
+    color: #111;
+}
+
+nav #open:hover{
+    background-color: var(--glass);
+}
+
+nav #open:hover #plus{
+    background-color: var(--red);
+    color: var(--white);
+    transition-delay: .2s;
+}
+
+/* Navbar Styling End  */
+
+/* Modal Styling Start  */
+
+#modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 350px;
+    width: 700px;
+    background-color: var(--glass);
+    backdrop-filter: blur(100px);
+    border: 1px solid var(--glass);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    z-index: 100;
+    transition: .5s all;
+    display: none;
+}
+
+#modal .header{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid var(--glass);
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#modal .header h2{
+    color: var(--white);
+}
+
+#modal .header #close{
+    color: var(--red);
+    transform: rotate(45deg);
+    font-size: 32px;
+    cursor: pointer;
+}
+
+#modal tr td{
+    color: var(--white);
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+#modal tr td input, textarea, select{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    outline: none;
+}
+
+#modal button{
+    background-color: var(--red);
+    height: 34px;
+    width: 100px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: .5s all;
+}
+
+#modal button:hover{
+    background-color: var(--glass);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+#alertMessage{
+    position: relative;
+    padding: 10px;
+    background: rgba(255,0,0,0.2);
+    display: none;
+}
+
+#closeAlert{
+    position: absolute;
+    display: block;
+    line-height: 10px;
+    transform: rotate(45deg);
+    font-size: 24px;
+    float: right;
+}
+/* Modal Styling End  */
+
+/* Main content Styling Start  */
+
+#contactList{
+    width: 100%;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#row{
+    width: auto;
+    min-height: 360px;
+}
+
+#row .cards{
+    height: 100%;
+    width: 370px;
+    background-color: var(--glass);
+    backdrop-filter: blur(100px);
+    border: 1px solid var(--glass);
+}
+
+#row .group{
+    background-color: var(--red);
+    display: flex;
+    padding: 15px 30px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#row .details{
+    color: #fff;
+    width: 100%;
+}
+
+#row .details #companyname{
+    background: var(--white);
+    color: #111;
+    padding: 5px 10px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+#row .details h3{
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#row .details h4{
+    font-weight: 100;
+}
+
+#row .moreDetails{
+    position: relative;
+    padding: 0 15px;
+}
+
+#row .moreDetails .contents {
+    width: 100%;
+}
+
+#row .moreDetails .contents p{
+    font-size: 14px;
+    color: var(--white);
+}
+
+#row .moreDetails .actions{
+    position: absolute;
+    right: 15px;
+    top: 5px;
+}
+
+#row .moreDetails .actions button{
+    background-color: var(--glass);
+    border: 1px solid var(--glass);
+    outline: none;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    margin: 0 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+/* Main Content Styling End  */
+
+@media only screen and (max-width: 991px) {
+nav{
+    padding: 15px;
+}
+
+#contactList{
+    padding: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cards{
+    width: auto;
+}
+}

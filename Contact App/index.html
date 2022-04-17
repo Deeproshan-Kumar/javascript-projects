@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Contact Application in JS</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Contact App</div>
+        <div id="open" onclick="FormHandler.displayModal()">Add Contacts <span id="plus">+</span></div>
+    </nav>
+    <br><br>
+
+    <div id="contactList">
+        
+    </div>
+
+    <div id="modal">
+        <div class="header">
+            <h2>Add Contacts</h2>
+            <span id="close" onclick="FormHandler.closeModal()">+</span>
+        </div>
+        <table width="100%">
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="" id="firstName" placeholder="First Name" required>
+                </td>
+                <td>
+                    <input type="text" name="" id="lastName" placeholder="Last Name" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Company</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" name="" id="companyName" placeholder="Company" required></td>
+            </tr>
+
+            <tr>
+                <td>Phone</td>
+                <td>Label</td>
+            </tr>
+            <tr>
+                <td><input type="number" name="" id="phoneNumber" placeholder="Phone" required></td>
+                <td>
+                    <select name="" id="labelType" required>
+                        <option value="No Label">No Label</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Work">Work</option>
+                        <option value="Home">Home</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Email</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="email" name="" id="emailAddr" placeholder="Email" required></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Website</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="url" name="" id="webAddress" placeholder="Website" required></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Relationship</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" name="" id="relation" placeholder="Relationship" required></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Address</td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea name="" id="addr" cols="30" rows="3" placeholder="Address" required></textarea></td>
+            </tr>
+
+
+
+            <tr>
+                <td><button onclick="FormHandler.gettingValue()">Save</button></td>
+                <td><p id="alertMessage"><span id="closeAlert">+</span></p></td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

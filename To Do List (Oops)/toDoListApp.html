@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO APP</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ionicons CDN Link  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <div class="logo">TODO</div>
+            <div class="search">
+                <button class="addtask">Add Task <ion-icon name="add-circle-outline"></ion-icon></button>
+            </div>
+        </header>
+        <section class="main">
+            <div class="row">
+                <div class="left">
+                    <h2 class="title">Title_1</h2>
+
+                    <p class="desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, amet.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsam cumque consequuntur!
+                        Lorem ipsum dolor sit amet consectetur.
+                    </p>
+
+                    <p>Date : <span style="color: #777;" class="date">24 februare, 2022</span></p>
+                </div>
+                <div class="right">
+                    <p style="color: #555;">Priority: <span style="color: red;" class="priority">High</span></p>
+                    <p style="color: #555;">Status : <span style="color: red;" class="status">Pending</span></p>
+                    <button class="marker">
+                        <ion-icon name="checkmark-done-outline"></ion-icon>Mark as Done
+                    </button>
+                    <button class="edit" onclick="editTask();">
+                        <ion-icon name="pencil-outline"></ion-icon>Edit
+                    </button>
+                    <button class="del" onclick="delTask();">
+                        <ion-icon name="trash-outline"></ion-icon>Delete
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="popup">
+        <div>
+            <div class="alert">
+                <div class="message"></div>
+                <div class="closeAlert">x</div>
+            </div>
+            <a class="close">
+                <ion-icon name="close-circle-outline" onclick="closePopup();"></ion-icon>
+            </a>
+            <h2 class="modal-title">Add Task</h2>
+            <label for="">Title</label>
+            <br><br>
+            <input type="text" name="title" id="title" placeholder="Enter the title">
+            <br><br>
+            <label for="">Description</label>
+            <br><br>
+            <textarea name="desc" id="desc" cols="30" rows="4" placeholder="Enter the description here"></textarea>
+            <br><br>
+            <label for="">Date</label>
+            <input type="date" name="date" id="date">
+            <br><br>
+            <label for="">Priority level</label>
+            <select id="priority">
+                <option value="Undefined" selected>--SELECT--</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <label for="">Status</label>
+            <select id="status">
+                <option value="Undefined" selected>--SELECT--</option>
+                <option value="Pending">Pending</option>
+                <option value="Processing">Processing</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <br><br>
+            <button type="button" id="addTask" class="addbtn" onclick="addTask();">Add</button>
+        </div>
+    </div>
+
+
+    <script>
+
+        // Pop-up Box   
+        let addtask = document.querySelector('.addtask');
+        let popup = document.querySelector('.popup');
+        let main = document.querySelector('main');
+        let body = document.querySelector('body');
+        let close = document.querySelector('.close');
+        addtask.addEventListener('click', function () {
+            popup.style.display = "flex";
+            main.style.display = "none";
+            body.style.background = "linear-gradient(45deg, #ddd,#eee)";
+        });
+
+        close.addEventListener('click', function () {
+            popup.style.display = "none";
+            main.style.display = "initial";
+            body.style.background = "initial";
+        });
+
+        // Add task
+        function addTask() {
+            let titleOfTask = document.querySelector('#title').value;
+            let descOfTask = document.querySelector('#desc').value;
+            let dateOfTask = document.querySelector('#date').value;
+            let priorityOfTask = document.querySelector('#priority').value;
+            let statusOfTask = document.querySelector('#status').value;
+
+            let modalTitle = document.querySelector('.modal-title');
+            modalTitle.innerText = "Add Task";
+
+            if (titleOfTask == "" || descOfTask == "" || dateOfTask == "" || priorityOfTask == "" || statusOfTask == "") {
+                let alert = document.querySelector('.alert');
+                let message = document.querySelector('.message');
+                let closeAlert = document.querySelector('.closeAlert');
+                message.innerHTML = "Please fill all the fields !";
+                message.style.color = "red";
+                alert.style.display = "block";
+                closeAlert.addEventListener('click', function () {
+                    alert.style.display = "none";
+                });
+            } else {
+                document.querySelector('.title').innerHTML = titleOfTask;
+                document.querySelector('.desc').innerHTML = descOfTask;
+                document.querySelector('.date').innerHTML = dateOfTask;
+                document.querySelector('.priority').innerHTML = priorityOfTask;
+                document.querySelector('.status').innerHTML = statusOfTask;
+
+                let body = document.querySelector('body');
+                let main = document.querySelector('main');
+                let popup = document.querySelector('.popup');
+                let row = document.querySelector('.row');
+
+                body.style.background = "initial";
+                main.style.display = "block";
+                popup.style.display = "none";
+                row.style.display = "flex";
+                clearFormFields();
+            }
+        }
+
+        // Clearing from fields
+        function clearFormFields(){
+            document.querySelector('#title').value='';
+            document.querySelector('#desc').value='';
+            document.querySelector('#date').value='';
+            document.querySelector('#priority').value='';
+            document.querySelector('#status').value='';
+        }
+
+        // Close popup 
+        function closePopup() {
+            let popup = document.querySelector('.popup');
+            let body = document.querySelector('body');
+            let main = document.querySelector('main');
+
+            popup.style.display = "none";
+            main.style.display = "block";
+            body.style.background = "initial";
+
+        }
+
+        // Mark as Done
+        let marker = document.querySelector('.marker');
+        marker.addEventListener('click', function () {
+            marker.innerText = "Completed !";
+            document.querySelector('.status').innerText = "Completed";
+        });
+
+        // Edit task
+        function editTask() {
+            let popup = document.querySelector('.popup');
+            let modalTitle = document.querySelector('.modal-title');
+            popup.style.display = "block";
+            modalTitle.innerText = "Edit Task";
+            let title = document.querySelector('.title').innerText;
+            let desc = document.querySelector('.desc').innerText;
+            let date = document.querySelector('.date').innerText;
+            let priority = document.querySelector('.priority').innerText;
+            let status = document.querySelector('.status').innerText;
+            let close = document.querySelector('.close');
+            close.style.display="none";
+            document.querySelector('#title').value=title;
+            document.querySelector('#desc').value=desc;
+            document.querySelector('#date').value=date;
+            document.querySelector('#priority').value=priority;
+            document.querySelector('#status').value=status;
+            document.querySelector('#addTask').innerText="Save";
+        }
+
+        // Delete task 
+        function delTask() {
+            let cnfDel = confirm("Are you sure to delete this task?");
+            if (cnfDel == true) {
+                let row = document.querySelector('.row');
+                row.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

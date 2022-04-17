@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*,*:before,*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #07012b;
+    font-family: sans-serif;
+}
+
+#container{
+    position: relative;
+    top: -60px;
+    height: 120px;
+    width: 360px;
+}
+
+#container h2{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin: 10px auto;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+#clock{
+    height: 130px;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#clock div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    -webkit-box-reflect: below 1px linear-gradient(#000,transparent);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+span{
+    height: 100px;
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+}
+
+span:nth-child(2){
+    color: #fff;
+    text-transform: uppercase;
+    height: 30px;
+    width: 100%;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+#hour{
+    width: 100%;
+    color: red;
+    border-bottom: 1px solid red;
+}
+
+#minute{
+    width: 100%;
+    color: green;
+    border-bottom: 1px solid green;
+}
+
+#second{
+    width: 100%;
+    color: blue;
+    border-bottom: 1px solid blue;
+}
+
+#label{
+    position: absolute;
+    top: 40px;
+    left: -50px;
+    padding: 5px 60px;
+    letter-spacing: 1px;
+    background: crimson;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    transform: rotate(-45deg);
+    border-bottom: 3px solid rgba(255,255,255,0.5);
+}
